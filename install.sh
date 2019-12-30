@@ -8,9 +8,7 @@ apk add --no-cache --virtual \
     tar                      \
     gnupg                       
 apk add --no-cache \
-    procps         \
     bash           \
-		python         \
     openjdk8
 mkdir /tmp/phoenix-test /tmp/hbase /tmp/zookeeper
 
@@ -30,8 +28,8 @@ gpg --import /tmp/phoenix-test/phoenix-keys
 wget -P /tmp/phoenix-test "$APACHE_MIRROR/phoenix/apache-phoenix-$PHOENIX_VERSION/bin/apache-phoenix-$PHOENIX_VERSION-bin.tar.gz"
 wget -P /tmp/phoenix-test "https://www.apache.org/dist/phoenix/apache-phoenix-$PHOENIX_VERSION/bin/apache-phoenix-$PHOENIX_VERSION-bin.tar.gz.asc"
 gpg --verify /tmp/phoenix-test/apache-phoenix-$PHOENIX_VERSION-bin.tar.gz.asc
-tar zxf /tmp/phoenix-test/apache-phoenix-$PHOENIX_VERSION-bin.tar.gz -C /usr/local
-cp $PHOENIX_HOME/phoenix-$PHOENIX_VERSION-server.jar $HBASE_HOME/lib/
+tar zxf /tmp/phoenix-test/apache-phoenix-$PHOENIX_VERSION-bin.tar.gz -C /tmp/phoenix-test
+cp /tmp/phoenix-test/apache-phoenix-$PHOENIX_VERSION-bin/phoenix-$PHOENIX_VERSION-server.jar $HBASE_HOME/lib/
 
 # Clean
 rm -r /tmp/phoenix-test

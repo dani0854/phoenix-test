@@ -9,10 +9,8 @@ ARG APACHE_MIRROR="http://apache-mirror.rbc.ru/pub/apache"
 ENV LANG=en_US.utf8                                                                                   \
     JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk                                                           \
     HBASE_HOME=/usr/local/hbase-$HBASE_VERSION                                                        \
-    PHOENIX_HOME=/usr/local/apache-phoenix-$PHOENIX_VERSION-bin                                       \
     HBASE_CONF_DIR=/usr/local/hbase-$HBASE_VERSION/conf                                               \
-    PATH=$PATH:usr/lib/jvm/java-1.8-openjdk/bin:/usr/local/hbase-$HBASE_VERSION/bin:/usr/local/apache-phoenix-$PHOENIX_VERSION-bin/bin
-
+    PATH=$PATH:usr/lib/jvm/java-1.8-openjdk/bin:/usr/local/hbase-$HBASE_VERSION/bin
 
 # Install
 COPY install.sh /tmp/
